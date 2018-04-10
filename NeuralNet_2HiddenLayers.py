@@ -15,10 +15,7 @@
 #   w01, delta01, X01 - weights, updates and outputs for connection from layer 0 (input) to layer 1 (first hidden)
 #   w12, delata12, X12 - weights, updates and outputs for connection from layer 1 (first hidden) to layer 2 (second hidden)
 #   w23, delta23, X23 - weights, updates and outputs for connection from layer 2 (second hidden) to layer 3 (output layer)
-#
-#   You need to complete all TODO marked sections
-#   You are free to modify this code in any way you want, but need to mention it in the README file.
-#
+
 #####################################################################################################################
 
 
