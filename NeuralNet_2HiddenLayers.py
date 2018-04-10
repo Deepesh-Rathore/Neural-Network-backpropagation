@@ -87,9 +87,7 @@ class NeuralNet:
         self.X23 = np.zeros((len(self.X), h2))
         self.delta23 = np.zeros((h2, output_layer_size))
         self.deltaOut = np.zeros((output_layer_size, 1))
-    #
-    # TODO: I have coded the sigmoid activation function, you need to do the same for tanh and ReLu
-    #
+  
 
     def __activation(self, x, activation="sigmoid"):
         if activation == "sigmoid":
@@ -99,9 +97,7 @@ class NeuralNet:
         elif activation == "tanh":
             self.__tanh(self, x)
 
-    #
-    # TODO: Define the function for tanh, ReLu and their derivatives
-    #
+    
 
     def __activation_derivative(self, x, activation="sigmoid"):
         if activation == "sigmoid":
@@ -133,11 +129,7 @@ class NeuralNet:
     
     def __tanh_derivative(self, x):
         return (1 - x * x)
-    
-    #
-    # TODO: Write code for pre-processing the dataset, which would include standardization, normalization,
-    #   categorical to numerical, etc
-    #
+ 
 
     def preprocess(self, X):
 # #         fill missing values with the most frequent
@@ -217,7 +209,6 @@ class NeuralNet:
         self.compute_hidden_layer2_delta(activation)
         self.compute_hidden_layer1_delta(activation)
 
-    # TODO: Implement other activation functions
 
     def compute_output_delta(self, out, activation="sigmoid"):
         if activation == "sigmoid":
@@ -229,7 +220,6 @@ class NeuralNet:
 
         self.deltaOut = delta_output
 
-    # TODO: Implement other activation functions
 
     def compute_hidden_layer2_delta(self, activation="sigmoid"):
         if activation == "sigmoid":
@@ -241,8 +231,6 @@ class NeuralNet:
 
         self.delta23 = delta_hidden_layer2
 
-    # TODO: Implement other activation functions
-
     def compute_hidden_layer1_delta(self, activation="sigmoid"):
         if activation == "sigmoid":
             delta_hidden_layer1 = (self.delta23.dot(self.w12.T)) * (self.__sigmoid_derivative(self.X12))
@@ -253,8 +241,7 @@ class NeuralNet:
 
         self.delta12 = delta_hidden_layer1
 
-    # TODO: Implement other activation functions
-
+ 
     def compute_input_layer_delta(self, activation="sigmoid"):
         if activation == "sigmoid":
             delta_input_layer = np.multiply(self.__sigmoid_derivative(self.X01), self.delta01.dot(self.w01.T))
@@ -265,9 +252,7 @@ class NeuralNet:
 
         self.delta01 = delta_input_layer
 
-    # TODO: Implement the predict function for applying the trained model on the  test dataset.
-    # You can assume that the test dataset has the same format as the training dataset
-    # You have to output the test error from this function
+    # Output the test error from this function
 
     def predict(self, my_activation = "sigmoid", header = True):
         self.X = self.X_test
